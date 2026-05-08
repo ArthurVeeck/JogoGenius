@@ -208,9 +208,11 @@ main{
 
 .right-side{
     width: 350px;
+    max-width: 100%;
 
     display: flex;
     flex-direction: column;
+
     gap: 20px;
 }
 
@@ -656,10 +658,13 @@ footer span{
     }
 
     .tip-box{
-        width: 230px;
+        width: 100%;
+
+        max-width: 280px;
 
         padding: 15px;
     }
+
 
     .right-side{
         width: 230px;
@@ -680,6 +685,38 @@ footer span{
     }
 
     footer{
+        font-size: 14px;
+    }
+
+}
+
+@media(max-width: 480px){
+
+    .right-side{
+        width: 100%;
+    }
+
+    .card{
+        width: 100%;
+    }
+
+    #rankingList{
+        width: 100%;
+    }
+
+    .ranking-item{
+        width: 100%;
+
+        font-size: 14px;
+
+        padding: 12px;
+    }
+
+    .record-box span{
+        font-size: 40px;
+    }
+
+    .record-box p{
         font-size: 14px;
     }
 

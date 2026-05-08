@@ -94,7 +94,11 @@ function nextRound(){
 
     round++;
 
+if(round > 1){
+
     score += 50;
+
+}
 
     roundDisplay.textContent =
     round.toString().padStart(2,"0");
