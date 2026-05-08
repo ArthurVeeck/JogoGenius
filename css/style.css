@@ -497,3 +497,190 @@ footer span{
 
     font-weight: bold;
 }
+
+.record-box{
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 10px;
+
+    width: 300px;
+}
+
+.record-box span{
+    font-size: 60px;
+
+    font-weight: bold;
+
+    color: #ffd700;
+
+    text-shadow: 0 0 20px #ffd700;
+}
+
+.record-box p{
+    color: #ccc;
+
+    font-size: 18px;
+}
+
+.board-active{
+    
+    transform:
+    scale(1.58)
+    translateX(140px);
+
+    transition: 0.4s;
+}
+
+.hide-ui{
+    display: none;
+}
+
+/* RESPONSIVIDADE */
+
+@media(max-width: 1200px){
+
+    main{
+        flex-direction: column;
+
+        justify-content: center;
+        align-items: center;
+
+        gap: 40px;
+    }
+
+    .board-active{
+        transform:
+        scale(1.03)
+        translateX(0px);
+    }
+
+}
+
+@media(max-width: 768px){
+
+    header{
+        flex-direction: column;
+
+        gap: 20px;
+
+        text-align: center;
+    }
+
+    .logo h1{
+        font-size: 28px;
+    }
+
+    #startBtn{
+        width: 100%;
+    }
+
+    main{
+        padding: 20px;
+    }
+
+    .genius-board{
+        width: 280px;
+        height: 280px;
+    }
+
+    .center{
+        width: 100px;
+        height: 100px;
+    }
+
+    .center h2{
+        font-size: 25px;
+    }
+
+    .tip-box{
+        width: 280px;
+    }
+
+    .tip-box p{
+        font-size: 15px;
+    }
+
+    .right-side{
+        width: 280px;
+    }
+
+    .card{
+        padding: 20px;
+    }
+
+    .card h3{
+        font-size: 20px;
+    }
+
+    .score-box span{
+        font-size: 35px;
+    }
+
+    .message-box{
+        font-size: 16px;
+    }
+
+    .card li{
+        font-size: 15px;
+    }
+
+    .game-over-box{
+        width: 90%;
+    }
+
+    .register-box{
+        width: 90%;
+    }
+
+}
+
+@media(max-width: 480px){
+
+    .genius-board{
+        width: 230px;
+        height: 230px;
+    }
+
+    .center{
+        width: 80px;
+        height: 80px;
+    }
+
+    .center h2{
+        font-size: 18px;
+    }
+
+    .tip-box{
+        width: 230px;
+
+        padding: 15px;
+    }
+
+    .right-side{
+        width: 230px;
+    }
+
+    .score-box{
+        flex-direction: column;
+
+        gap: 15px;
+    }
+
+    .line{
+        display: none;
+    }
+
+    .score-box span{
+        font-size: 28px;
+    }
+
+    footer{
+        font-size: 14px;
+    }
+
+}

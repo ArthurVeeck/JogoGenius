@@ -1,26 +1,28 @@
+let gameStarted = false;
 let playerName = "";
 
 loadRanking();
 
 function savePlayer(){
-
+    
     const input =
     document.getElementById("playerName");
-
+    
     if(input.value.trim() === ""){
-
+        
         alert("Digite um nome");
-
+        
         return;
     }
-
+    
     playerName = input.value;
-
+    
     document.getElementById(
         "registerScreen"
     ).style.display = "none";
-
+    
 }
+
 
 const colors = ["green", "red", "yellow", "blue"];
 
@@ -61,6 +63,20 @@ colors.forEach(color => {
 });
 
 function startGame(){
+
+    gameStarted = true;
+
+    document.getElementById("dicaCard")
+    .classList.add("hide-ui");
+
+    document.getElementById("recordCard")
+    .classList.add("hide-ui");
+
+    document.getElementById("rankingCard")
+    .classList.add("hide-ui");
+
+    document.querySelector(".genius-board")
+    .classList.add("board-active");
 
     gameSequence = [];
     playerSequence = [];
@@ -139,6 +155,8 @@ function flashColor(color){
 
 function playerClick(color){
 
+    if(!gameStarted) return;
+
     playerSequence.push(color);
 
     flashColor(color);
@@ -192,6 +210,19 @@ function gameOver(){
     document.getElementById("finalScore")
     .textContent = score;
 
+    if(score > bestScore){
+
+        bestScore = score;
+
+        localStorage.setItem(
+            "bestScore",
+            bestScore
+        );
+
+        document.getElementById("bestScore")
+        .textContent = bestScore;
+    }
+
     saveRanking();
 
 }
@@ -212,6 +243,20 @@ function restartGame(){
 }
 
 function stopGame(){
+
+    gameStarted = false;
+
+    document.getElementById("dicaCard")
+    .classList.add("hide-ui");
+
+    document.getElementById("recordCard")
+    .classList.remove("hide-ui");
+
+    document.getElementById("rankingCard")
+    .classList.remove("hide-ui");
+
+    document.querySelector(".genius-board")
+    .classList.remove("board-active");
 
     document.getElementById("gameOver")
     .style.display = "none";
@@ -320,3 +365,9 @@ function loadRanking(){
     });
 
 }
+
+let bestScore =
+localStorage.getItem("bestScore") || 0;
+
+document.getElementById("bestScore")
+.textContent = bestScore;
