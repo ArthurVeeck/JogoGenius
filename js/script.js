@@ -360,7 +360,7 @@ function loadRanking(){
 
             </div>
 
-        `;
+        ` ;
 
     });
 
