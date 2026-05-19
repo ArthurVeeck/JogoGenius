@@ -550,3 +550,16 @@ function updateCurrentPlayer(){
     "Vez de: " + playerText;
 
 }
+
+const BotaoVoltar = document.querySelector(".Voltar");
+
+BotaoVoltar.addEventListener("click", function(){
+    window.location.href = "../index.html";
+});
+
+
+function goHome(){
+
+    window.location.href = "../index.html";
+
+}

@@ -341,3 +341,10 @@ function restartMultiplayer(){
     location.reload();
 
 }
+
+
+function goHome(){
+
+    window.location.href = "../index.html";
+
+}

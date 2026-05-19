@@ -258,3 +258,45 @@ h1{
     }
 
 }
+
+/* BOTÃO VOLTAR */
+
+.back-button{
+    position: fixed;
+
+    top: 20px;
+    left: 20px;
+
+    padding: 12px 22px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    background:
+    rgba(255,255,255,0.08);
+
+    border:
+    1px solid rgba(255,255,255,0.1);
+
+    color: white;
+
+    font-size: 17px;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+
+    z-index: 999;
+}
+
+.back-button:hover{
+
+    transform: translateY(-3px);
+
+    background:
+    #2563eb;
+
+    box-shadow:
+    0 0 15px #2563eb;
+}

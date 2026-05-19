@@ -276,3 +276,10 @@ function checkDraw(){
     return board.every(cell => cell !== "");
 
 }
+
+
+function goHome(){
+
+    window.location.href = "../index.html";
+
+}
