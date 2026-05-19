@@ -1,3 +1,30 @@
+let player1 = "";
+
+let player2 = "";
+
+let currentPlayer = 1;
+
+let player1Score = 0;
+
+let player2Score = 0;
+
+let difficulty = "medium";
+
+const difficultySelect =
+document.getElementById("difficulty");
+
+difficultySelect.addEventListener(
+    "change",
+    () => {
+
+        difficulty =
+        difficultySelect.value;
+
+        loadRanking();
+
+    }
+);
+
 let gameStarted = false;
 let playerName = "";
 
@@ -64,6 +91,8 @@ colors.forEach(color => {
 
 function startGame(){
 
+    difficulty = difficultySelect.value;
+
     gameStarted = true;
 
     document.getElementById("dicaCard")
@@ -94,11 +123,11 @@ function nextRound(){
 
     round++;
 
-if(round > 1){
+    if(round > 1){
 
-    score += 50;
+        score += 50;
 
-}
+    }
 
     roundDisplay.textContent =
     round.toString().padStart(2,"0");
@@ -109,14 +138,38 @@ if(round > 1){
     message.textContent =
     "Observe a sequência";
 
+    let availableColors = [...colors];
+
+    if(difficulty === "easy"){
+
+    availableColors =
+    ["green","red","yellow"];
+
+    document.getElementById("blue")
+    .style.display = "none";
+
+}else{
+
+    document.getElementById("blue")
+    .style.display = "block";
+
+}
+
     const randomColor =
-    colors[
+    availableColors[
         Math.floor(
-            Math.random() * colors.length
+            Math.random()
+            *
+            availableColors.length
         )
     ];
 
     gameSequence.push(randomColor);
+
+    localStorage.setItem(
+    "multiplayerSequence",
+    JSON.stringify(gameSequence)
+);
 
     showSequence();
 
@@ -126,17 +179,35 @@ function showSequence(){
 
     let delay = 0;
 
+    let speed = 700;
+
+    if(difficulty === "easy"){
+
+        speed = 1200;
+
+    }
+
+    if(difficulty === "hard"){
+
+        speed = 500;
+
+    }
+
     gameSequence.forEach(color => {
 
         setTimeout(() => {
 
-            flashColor(color);
+            if(difficulty !== "hard"){
+
+                flashColor(color);
+
+            }
 
             playSound(color);
 
         }, delay);
 
-        delay += 700;
+        delay += speed;
 
     });
 
@@ -208,26 +279,47 @@ function checkAnswer(){
 
 function gameOver(){
 
+    gameStarted = false;
+
     document.getElementById("gameOver")
     .style.display = "flex";
 
     document.getElementById("finalScore")
     .textContent = score;
 
-    if(score > bestScore){
+    if(currentPlayer === 1){
 
-        bestScore = score;
+        player1Score = score;
 
-        localStorage.setItem(
-            "bestScore",
-            bestScore
-        );
+    }else{
 
-        document.getElementById("bestScore")
-        .textContent = bestScore;
+        player2Score = score;
+
     }
 
     saveRanking();
+
+    if(currentPlayer === 1){
+
+        currentPlayer = 2;
+
+        score = 0;
+
+        round = 0;
+
+        message.textContent =
+
+        "Agora é a vez do Jogador 2";
+
+    }else{
+
+        message.textContent =
+
+        "Os dois jogadores terminaram";
+
+    }
+
+    updateCurrentPlayer();
 
 }
 
@@ -236,10 +328,14 @@ function restartGame(){
     document.getElementById("gameOver")
     .style.display = "none";
 
+    gameStarted = true;
+
     gameSequence = [];
+
     playerSequence = [];
 
     round = 0;
+
     score = 0;
 
     nextRound();
@@ -313,25 +409,42 @@ function playSound(color){
 
 function saveRanking(){
 
+    const rankingKey =
+
+    "ranking_" + difficulty;
+
     let ranking =
+
     JSON.parse(
-        localStorage.getItem("ranking")
+        localStorage.getItem(rankingKey)
     ) || [];
+
+    const currentName =
+
+    currentPlayer === 1
+
+    ? player1
+
+    : player2;
 
     ranking.push({
 
-        name: playerName,
+        name: currentName,
+
         points: score
 
     });
 
     ranking.sort((a,b) => b.points - a.points);
 
-    ranking = ranking.slice(0,5);
+    ranking = ranking.slice(0,10);
 
     localStorage.setItem(
-        "ranking",
+
+        rankingKey,
+
         JSON.stringify(ranking)
+
     );
 
     loadRanking();
@@ -340,9 +453,12 @@ function saveRanking(){
 
 function loadRanking(){
 
+    const rankingKey =
+    "ranking_" + difficulty;
+
     const ranking =
     JSON.parse(
-        localStorage.getItem("ranking")
+        localStorage.getItem(rankingKey)
     ) || [];
 
     const rankingList =
@@ -364,7 +480,7 @@ function loadRanking(){
 
             </div>
 
-        ` ;
+        `;
 
     });
 
@@ -375,3 +491,62 @@ localStorage.getItem("bestScore") || 0;
 
 document.getElementById("bestScore")
 .textContent = bestScore;
+
+document.getElementById("openPlayer2")
+.addEventListener("click", () => {
+
+    window.open(
+        "player2.html",
+        "_blank"
+    );
+
+});
+
+function savePlayers(){
+
+    const p1 =
+    document.getElementById("player1Name");
+
+    const p2 =
+    document.getElementById("player2Name");
+
+    if(
+        p1.value.trim() === ""
+        ||
+        p2.value.trim() === ""
+    ){
+
+        alert("Digite os nomes");
+
+        return;
+    }
+
+    player1 = p1.value;
+
+    player2 = p2.value;
+
+    document.getElementById(
+        "playersRegister"
+    ).style.display = "none";
+
+    updateCurrentPlayer();
+
+}
+
+function updateCurrentPlayer(){
+
+    const playerText =
+
+    currentPlayer === 1
+
+    ? player1
+
+    : player2;
+
+    document.getElementById(
+        "currentPlayer"
+    ).textContent =
+
+    "Vez de: " + playerText;
+
+}

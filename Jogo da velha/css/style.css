@@ -1,0 +1,250 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+    min-height: 100vh;
+
+    background:
+    radial-gradient(circle at top left, #132b7c, transparent 30%),
+    radial-gradient(circle at top right, #3a0d57, transparent 30%),
+    #050816;
+
+    color: white;
+}
+
+main{
+    width: 100%;
+
+    min-height: 100vh;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 60px;
+
+    padding: 40px;
+
+    flex-wrap: wrap;
+}
+
+.game-container{
+    text-align: center;
+}
+
+h1{
+    font-size: 50px;
+
+    margin-bottom: 20px;
+}
+
+.turn{
+    margin-bottom: 25px;
+
+    font-size: 22px;
+
+    color: #3b82f6;
+}
+
+.board{
+    width: 330px;
+    height: 330px;
+
+    display: grid;
+
+    grid-template-columns:
+    repeat(3,1fr);
+
+    gap: 10px;
+}
+
+.cell{
+    background: rgba(255,255,255,0.05);
+
+    border:
+    1px solid rgba(255,255,255,0.1);
+
+    border-radius: 15px;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    font-size: 55px;
+
+    font-weight: bold;
+
+    overflow: hidden;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.cell:hover{
+    background: rgba(59,130,246,0.2);
+}
+
+.restart-btn{
+    margin-top: 25px;
+
+    padding: 15px 30px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    background:
+    linear-gradient(90deg,#2563eb,#3b82f6);
+
+    color: white;
+
+    font-size: 18px;
+
+    cursor: pointer;
+}
+
+.ranking{
+    width: 300px;
+
+    background:
+    rgba(255,255,255,0.04);
+
+    border:
+    1px solid rgba(255,255,255,0.08);
+
+    border-radius: 20px;
+
+    padding: 30px;
+}
+
+.ranking h2{
+    margin-bottom: 25px;
+
+    text-align: center;
+}
+
+.ranking-item{
+    background:
+    rgba(255,255,255,0.05);
+
+    padding: 15px;
+
+    border-radius: 12px;
+
+    margin-bottom: 15px;
+
+    display: flex;
+
+    justify-content: space-between;
+}
+
+.register-screen,
+.winner-screen{
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background: rgba(0,0,0,0.9);
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    z-index: 1000;
+}
+
+.winner-screen{
+    display: none;
+}
+
+.register-box,
+.winner-box{
+    width: 400px;
+
+    background:
+    rgba(255,255,255,0.04);
+
+    border:
+    1px solid rgba(255,255,255,0.1);
+
+    border-radius: 20px;
+
+    padding: 40px;
+
+    text-align: center;
+}
+
+.register-box h2,
+.winner-box h2{
+    margin-bottom: 25px;
+
+    font-size: 35px;
+}
+
+.register-box input{
+    width: 100%;
+
+    padding: 15px;
+
+    margin-bottom: 20px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background: #111827;
+
+    color: white;
+
+    font-size: 18px;
+}
+
+.register-box button,
+.winner-box button{
+    width: 100%;
+
+    padding: 15px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    background:
+    linear-gradient(90deg,#2563eb,#3b82f6);
+
+    color: white;
+
+    font-size: 18px;
+
+    cursor: pointer;
+}
+
+@media(max-width: 768px){
+
+    .board{
+        width: 280px;
+        height: 280px;
+    }
+
+    .cell{
+    font-size: 40px;
+}
+
+    h1{
+        font-size: 35px;
+    }
+
+}

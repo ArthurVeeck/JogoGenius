@@ -1,0 +1,270 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+    min-height: 100vh;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    background:
+    radial-gradient(circle at top left, #132b7c, transparent 30%),
+    radial-gradient(circle at top right, #3a0d57, transparent 30%),
+    #050816;
+
+    color: white;
+
+    padding: 20px;
+}
+
+.game-box{
+    width: 420px;
+
+    background:
+    rgba(255,255,255,0.05);
+
+    border:
+    1px solid rgba(255,255,255,0.1);
+
+    border-radius: 25px;
+
+    padding: 40px;
+
+    text-align: center;
+
+    backdrop-filter: blur(10px);
+}
+
+h1{
+    font-size: 42px;
+
+    margin-bottom: 20px;
+}
+
+.range{
+    color: #ccc;
+
+    margin-bottom: 25px;
+
+    font-size: 18px;
+}
+
+select,
+input{
+    width: 100%;
+
+    padding: 15px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    background: #111827;
+
+    color: white;
+
+    font-size: 18px;
+
+    margin-bottom: 20px;
+}
+
+button{
+    width: 100%;
+
+    padding: 15px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    background:
+    linear-gradient(90deg,#2563eb,#3b82f6);
+
+    color: white;
+
+    font-size: 18px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+
+    margin-bottom: 15px;
+}
+
+button:hover{
+    transform: scale(1.03);
+
+    box-shadow:
+    0 0 20px #2563eb;
+}
+
+.restart-btn{
+    background:
+    linear-gradient(90deg,#ff003c,#ff4d6d);
+}
+
+.restart-btn:hover{
+    box-shadow:
+    0 0 20px #ff003c;
+}
+
+.message{
+    margin-top: 20px;
+
+    font-size: 22px;
+
+    color: #3b82f6;
+}
+
+.attempts,
+.record{
+    margin-top: 20px;
+
+    font-size: 20px;
+}
+
+.victory-screen{
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background: rgba(0,0,0,0.9);
+
+    display: none;
+
+    justify-content: center;
+    align-items: center;
+
+    z-index: 1000;
+}
+
+.victory-box{
+    width: 400px;
+
+    background:
+    rgba(255,255,255,0.05);
+
+    border:
+    1px solid rgba(255,255,255,0.1);
+
+    border-radius: 20px;
+
+    padding: 40px;
+
+    text-align: center;
+}
+
+.victory-box h2{
+    font-size: 40px;
+
+    margin-bottom: 20px;
+}
+
+.victory-box p{
+    margin-bottom: 25px;
+
+    font-size: 20px;
+}
+
+@media(max-width: 480px){
+
+    .game-box{
+        width: 100%;
+    }
+
+    h1{
+        font-size: 32px;
+    }
+
+}
+
+/* MULTIPLAYER */
+
+.register-screen,
+.winner-screen{
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background: rgba(0,0,0,0.9);
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    z-index: 1000;
+}
+
+.winner-screen{
+    display: none;
+}
+
+.register-box,
+.winner-box{
+    width: 400px;
+
+    background:
+    rgba(255,255,255,0.05);
+
+    border:
+    1px solid rgba(255,255,255,0.1);
+
+    border-radius: 20px;
+
+    padding: 40px;
+
+    text-align: center;
+}
+
+.register-box h2,
+.winner-box h2{
+    font-size: 35px;
+
+    margin-bottom: 25px;
+}
+
+.register-box input{
+    width: 100%;
+
+    padding: 15px;
+
+    margin-bottom: 20px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background: #111827;
+
+    color: white;
+
+    font-size: 18px;
+}
+
+.player-turn{
+    margin-bottom: 20px;
+
+    font-size: 22px;
+
+    color: #3b82f6;
+
+    text-align: center;
+}

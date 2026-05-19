@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+    content="width=device-width, initial-scale=1.0">
+
+    <title>Pedra Papel Tesoura</title>
+
+    <link rel="stylesheet"
+    href="css/style.css">
+
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+</head>
+<body>
+
+    <!-- CADASTRO -->
+
+    <div class="register-screen"
+    id="registerScreen">
+
+        <div class="register-box">
+
+            <h2>Pedra Papel Tesoura</h2>
+
+            <input
+            type="text"
+            id="player1Name"
+            placeholder="Nome Jogador 1">
+
+            <input
+            type="text"
+            id="player2Name"
+            placeholder="Nome Jogador 2">
+
+            <select id="gameMode">
+
+                <option value="3">
+                    Melhor de 3
+                </option>
+
+                <option value="5">
+                    Melhor de 5
+                </option>
+
+            </select>
+
+            <button onclick="startGame()">
+
+                Começar
+
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- JOGO -->
+
+    <main>
+
+        <h1>
+
+            Pedra Papel Tesoura
+
+        </h1>
+
+        <div class="turn"
+        id="turnText">
+
+            Vez do Jogador 1
+
+        </div>
+
+        <div class="scoreboard">
+
+            <div class="score-card">
+
+                <h2 id="player1Text">
+
+                    Jogador 1
+
+                </h2>
+
+                <span id="score1">
+
+                    0
+
+                </span>
+
+            </div>
+
+            <div class="score-card">
+
+                <h2 id="player2Text">
+
+                    Jogador 2
+
+                </h2>
+
+                <span id="score2">
+
+                    0
+
+                </span>
+
+            </div>
+
+        </div>
+
+        <div class="choices">
+
+            <button
+            class="choice"
+            onclick="choose('pedra')">
+
+                <i class="fa-solid fa-hand-back-fist"></i>
+
+                Pedra
+
+            </button>
+
+            <button
+            class="choice"
+            onclick="choose('papel')">
+
+                <i class="fa-solid fa-hand"></i>
+
+                Papel
+
+            </button>
+
+            <button
+            class="choice"
+            onclick="choose('tesoura')">
+
+                <i class="fa-solid fa-hand-scissors"></i>
+
+                Tesoura
+
+            </button>
+
+        </div>
+
+        <div class="result"
+        id="result">
+
+            Escolha uma opção
+
+        </div>
+
+        <button class="reset-btn"
+        onclick="resetScore()">
+
+            Reiniciar Placar
+
+        </button>
+
+    </main>
+
+    <!-- TELA FINAL -->
+
+    <div class="winner-screen"
+    id="winnerScreen">
+
+        <div class="winner-box">
+
+            <h2 id="winnerText">
+
+                Jogador venceu!
+
+            </h2>
+
+            <button onclick="restartGame()">
+
+                Jogar Novamente
+
+            </button>
+
+        </div>
+
+    </div>
+
+    <script src="js/script.js"></script>
+
+</body>
+</html>

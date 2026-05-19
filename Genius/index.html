@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo Genius</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+    <header>
+
+        <div class="logo">
+            <i class="fa-solid fa-brain"></i>
+            <h1>Jogo <span>Genius</span></h1>
+        </div>
+
+        <button id="startBtn">
+            <i class="fa-solid fa-play"></i>
+            Iniciar Jogo
+        </button>
+
+        <select id="difficulty">
+
+    <option value="easy">
+        Fácil
+    </option>
+
+    <option value="medium" selected>
+        Médio
+    </option>
+
+    <option value="hard">
+        Difícil
+    </option>
+
+</select>
+
+    </header>
+
+    <main>
+
+        <section class="left-side">
+
+            <div class="genius-board">
+
+                <div class="color green" id="green"></div>
+
+                <div class="color red" id="red"></div>
+
+                <div class="color yellow" id="yellow"></div>
+
+                <div class="color blue" id="blue"></div>
+
+                <div class="center">
+                    <h2>GENIUS</h2>
+                </div>
+
+            </div>
+
+            <div class="tip-box" id="dicaCard">
+
+                <i class="fa-solid fa-lightbulb"></i>
+
+                <div>
+                    <p>
+                        Observe a sequência e repita na mesma ordem!
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+        <section class="right-side">
+        
+        <div class="card" id="recordCard">
+        
+            <h3>
+                <i class="fa-solid fa-star"></i>
+                RECORDE
+            </h3>
+        
+            <div class="record-box">
+        
+                <span id="bestScore">0</span>
+        
+                <p>Melhor pontuação</p>
+        
+            </div>
+        
+        </div>
+        
+        <div class="card" id="rankingCard">
+
+<h3>
+<i class="fa-solid fa-ranking-star"></i>
+RANKING
+</h3>
+
+<div id="rankingList">
+
+</div>
+
+</div>
+
+</section>
+
+
+        <section class="right-side">
+
+            <div class="card">
+
+                <h3>
+                    <i class="fa-solid fa-trophy"></i>
+                    PLACAR
+                </h3>
+                
+
+                <div class="score-box">
+
+                    <div>
+                        <p>RODADA</p>
+                        <span id="round">00</span>
+                    </div>
+
+                    <div class="line"></div>
+
+                    <div>
+                        <p>PONTOS</p>
+                        <span id="score">0</span>
+                    </div>
+
+                </div>
+
+                <p id="currentPlayer">
+
+    Vez do Jogador 1
+
+</p>
+
+            </div>
+
+            <div class="card">
+
+                <h3>
+                    <i class="fa-solid fa-message"></i>
+                    MENSAGEM
+                </h3>
+
+                <div class="message-box" id="message">
+                    Clique em iniciar
+                </div>
+
+            </div>
+
+            <div class="card">
+
+                <h3>
+                    <i class="fa-solid fa-circle-question"></i>
+                    COMO JOGAR
+                </h3>
+
+                <ul>
+
+                    <li>Clique em iniciar.</li>
+
+                    <li>Observe as cores.</li>
+
+                    <li>Repita a sequência.</li>
+
+                    <li>Cada rodada adiciona 1 cor.</li>
+
+                    <li>Errou? Você perde.</li>
+
+                </ul>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer>
+
+        <p>
+            © 2026 <span>Veeck Games</span>
+        </p>
+
+    </footer>
+
+    <!-- TELA DE DERROTA -->
+
+    <div class="game-over" id="gameOver">
+
+        <div class="game-over-box">
+
+            <h2>Você perdeu!</h2>
+
+            <p>
+                Sua pontuação:
+                <span id="finalScore">0</span>
+            </p>
+
+            <button onclick="restartGame()">
+                Jogar Novamente
+            </button>
+            
+
+            <button class="exit-btn"
+             onclick="stopGame()">
+
+        Parar de Jogar
+
+    </button>
+
+        </div>
+
+    </div>
+
+    <script src="js/script.js"></script>
+
+</body>
+
+<!-- CADASTRO DOS JOGADORES -->
+
+<div class="players-register" id="playersRegister">
+
+    <div class="register-box">
+
+        <h2>Modo Multiplayer</h2>
+
+        <input
+        type="text"
+        id="player1Name"
+        placeholder="Nome do Jogador 1">
+
+        <input
+        type="text"
+        id="player2Name"
+        placeholder="Nome do Jogador 2">
+
+        <button onclick="savePlayers()">
+
+            Continuar
+
+        </button>
+
+    </div>
+
+</div>
+
+
+</div>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+    content="width=device-width, initial-scale=1.0">
+
+    <title>Jogo da Velha</title>
+
+    <link rel="stylesheet"
+    href="css/style.css">
+
+</head>
+<body>
+
+    <!-- CADASTRO -->
+
+    <div class="register-screen"
+    id="registerScreen">
+
+        <div class="register-box">
+
+            <h2>Jogo da Velha</h2>
+
+            <input
+            type="text"
+            id="player1"
+            placeholder="Nome do Jogador X">
+
+            <input
+            type="text"
+            id="player2"
+            placeholder="Nome do Jogador O">
+
+            <button onclick="startGame()">
+
+                Começar
+
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- CONTEÚDO -->
+
+    <main>
+
+        <div class="game-container">
+
+            <h1>JOGO DA VELHA</h1>
+
+            <div class="turn"
+            id="turnText">
+
+                Vez do jogador X
+
+            </div>
+
+            <div class="board">
+
+                <div class="cell"
+                data-index="0"></div>
+
+                <div class="cell"
+                data-index="1"></div>
+
+                <div class="cell"
+                data-index="2"></div>
+
+                <div class="cell"
+                data-index="3"></div>
+
+                <div class="cell"
+                data-index="4"></div>
+
+                <div class="cell"
+                data-index="5"></div>
+
+                <div class="cell"
+                data-index="6"></div>
+
+                <div class="cell"
+                data-index="7"></div>
+
+                <div class="cell"
+                data-index="8"></div>
+
+            </div>
+
+            <button class="restart-btn"
+            onclick="restartGame()">
+
+                Reiniciar
+
+            </button>
+
+        </div>
+
+        <!-- RANKING -->
+
+        <div class="ranking">
+
+            <h2>Ranking</h2>
+
+            <div id="rankingList"></div>
+
+        </div>
+
+    </main>
+
+    <!-- TELA FINAL -->
+
+    <div class="winner-screen"
+    id="winnerScreen">
+
+        <div class="winner-box">
+
+            <h2 id="winnerText">
+
+                Jogador venceu!
+
+            </h2>
+
+            <button onclick="closeWinner()">
+
+                Jogar Novamente
+
+            </button>
+
+        </div>
+
+    </div>
+
+    <script src="js/script.js"></script>
+
+</body>
+</html>

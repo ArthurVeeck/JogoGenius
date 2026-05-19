@@ -1,163 +1,167 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jogo Genius</title>
 
-    <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+    content="width=device-width, initial-scale=1.0">
+
+    <title>Tela inicial</title>
+
+    <link rel="stylesheet"
+    href="style.css">
 
     <link rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
 </head>
 <body>
 
     <header>
 
         <div class="logo">
-            <i class="fa-solid fa-brain"></i>
-            <h1>Jogo <span>Genius</span></h1>
-        </div>
 
-        <button id="startBtn">
-            <i class="fa-solid fa-play"></i>
-            Iniciar Jogo
-        </button>
+            <i class="fa-solid fa-gamepad"></i>
+
+            <h1>Veeck <span>Games</span></h1>
+
+        </div>
 
     </header>
 
     <main>
 
-        <section class="left-side">
+        <section class="hero">
 
-            <div class="genius-board">
+            <h2>
 
-                <div class="color green" id="green"></div>
+                Plataforma de Jogos Web
 
-                <div class="color red" id="red"></div>
+            </h2>
 
-                <div class="color yellow" id="yellow"></div>
+            <p>
 
-                <div class="color blue" id="blue"></div>
+                Jogue o Genius e futuros jogos
+                criados em JavaScript.
 
-                <div class="center">
-                    <h2>GENIUS</h2>
-                </div>
-
-            </div>
-
-            <div class="tip-box" id="dicaCard">
-
-                <i class="fa-solid fa-lightbulb"></i>
-
-                <div>
-                    <p>
-                        Observe a sequência e repita na mesma ordem!
-                    </p>
-                </div>
-
-            </div>
+            </p>
 
         </section>
 
-        <section class="right-side">
-        
-        <div class="card" id="recordCard">
-        
-            <h3>
-                <i class="fa-solid fa-star"></i>
-                RECORDE
-            </h3>
-        
-            <div class="record-box">
-        
-                <span id="bestScore">0</span>
-        
-                <p>Melhor pontuação</p>
-        
-            </div>
-        
-        </div>
-        
-        <div class="card" id="rankingCard">
+        <section class="games-container">
 
-<h3>
-<i class="fa-solid fa-ranking-star"></i>
-RANKING TOP 5
-</h3>
+            <!-- CARD DO GENIUS -->
 
-<div id="rankingList">
+            <div class="game-card">
 
-</div>
+                <div class="icon">
 
-</div>
-
-</section>
-
-
-        <section class="right-side">
-
-            <div class="card">
-
-                <h3>
-                    <i class="fa-solid fa-trophy"></i>
-                    PLACAR
-                </h3>
-                
-
-                <div class="score-box">
-
-                    <div>
-                        <p>RODADA</p>
-                        <span id="round">00</span>
-                    </div>
-
-                    <div class="line"></div>
-
-                    <div>
-                        <p>PONTOS</p>
-                        <span id="score">0</span>
-                    </div>
+                    <i class="fa-solid fa-brain"></i>
 
                 </div>
 
-            </div>
+                <h3>Genius</h3>
 
-            <div class="card">
+                <p>
 
-                <h3>
-                    <i class="fa-solid fa-message"></i>
-                    MENSAGEM
-                </h3>
+                    Teste sua memória repetindo
+                    sequências de cores.
 
-                <div class="message-box" id="message">
-                    Clique em iniciar
-                </div>
+                </p>
 
-            </div>
+                <button onclick="openGame('Genius/index.html')">
 
-            <div class="card">
+                    Jogar
 
-                <h3>
-                    <i class="fa-solid fa-circle-question"></i>
-                    COMO JOGAR
-                </h3>
-
-                <ul>
-
-                    <li>Clique em iniciar.</li>
-
-                    <li>Observe as cores.</li>
-
-                    <li>Repita a sequência.</li>
-
-                    <li>Cada rodada adiciona 1 cor.</li>
-
-                    <li>Errou? Você perde.</li>
-
-                </ul>
+                </button>
 
             </div>
+
+            <!-- CARD JOGO DA VELHA -->
+
+<div class="game-card">
+
+    <div class="icon">
+
+        <i class="fa-solid fa-xmark"></i>
+
+    </div>
+
+    <h3>Jogo da Velha</h3>
+
+    <p>
+
+        Desafie outro jogador
+        em partidas clássicas.
+
+    </p>
+
+    <button
+    onclick="openGame('Jogo da velha/index.html')">
+
+        Jogar
+
+    </button>
+
+</div>
+
+<!-- CARD ADIVINHAÇÃO -->
+
+<div class="game-card">
+
+    <div class="icon">
+
+        <i class="fa-solid fa-hashtag"></i>
+
+    </div>
+
+    <h3>Adivinhação</h3>
+
+    <p>
+
+        Tente descobrir o número
+        secreto do sistema.
+
+    </p>
+
+    <button
+    onclick="openGame('Advinhação/index.html')">
+
+        Jogar
+
+    </button>
+
+</div>
+
+<!-- CARD PEDRA PAPEL TESOURA -->
+
+<div class="game-card">
+
+    <div class="icon">
+
+        <i class="fa-solid fa-hand-back-fist"></i>
+
+    </div>
+
+    <h3>Pedra Papel Tesoura</h3>
+
+    <p>
+
+        Dispute partidas multiplayer
+        contra outro jogador.
+
+    </p>
+
+    <button
+    onclick="openGame('pedra-papel-tesoura/index.html')">
+
+        Jogar
+
+    </button>
+
+</div>
+
 
         </section>
 
@@ -166,64 +170,14 @@ RANKING TOP 5
     <footer>
 
         <p>
-            © 2026 <span>Jogo Genius</span>
+
+            © 2026 Veeck Games
+
         </p>
 
     </footer>
 
-    <!-- TELA DE DERROTA -->
-
-    <div class="game-over" id="gameOver">
-
-        <div class="game-over-box">
-
-            <h2>Você perdeu!</h2>
-
-            <p>
-                Sua pontuação:
-                <span id="finalScore">0</span>
-            </p>
-
-            <button onclick="restartGame()">
-                Jogar Novamente
-            </button>
-            
-
-            <button class="exit-btn"
-             onclick="stopGame()">
-
-        Parar de Jogar
-
-    </button>
-
-        </div>
-
-    </div>
-
-    <script src="js/script.js"></script>
+    <script src="script.js"></script>
 
 </body>
-
-<!-- TELA DE CADASTRO --->
-
-<div class="register-screen" id="registerScreen">
-
-    <div class="register-box">
-
-        <h2>Bem-vindo ao Genius</h2>
-
-        <p>Digite seu nome para jogar</p>
-
-        <input
-        type="text"
-        id="playerName"
-        placeholder="Seu nome">
-
-        <button onclick="savePlayer()">
-            Entrar no Jogo
-        </button>
-
-    </div>
-
-</div>
 </html>

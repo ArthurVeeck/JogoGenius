@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+    content="width=device-width, initial-scale=1.0">
+
+    <title>Adivinhação</title>
+
+    <link rel="stylesheet"
+    href="css/style.css">
+
+</head>
+<body>
+
+    <div class="container">
+
+        <div class="game-box">
+
+            <h1>
+
+                Adivinhe o Número
+
+            </h1>
+
+            <div class="player-turn"
+id="playerTurn">
+
+    Vez do Jogador 1
+
+</div>
+
+            <p class="range">
+
+                Escolha um número entre
+                <span id="min">1</span>
+                e
+                <span id="max">100</span>
+
+            </p>
+
+            <select id="difficulty">
+
+                <option value="easy">
+                    Fácil
+                </option>
+
+                <option value="medium" selected>
+                    Médio
+                </option>
+
+                <option value="hard">
+                    Difícil
+                </option>
+
+            </select>
+
+            <input
+            type="number"
+            id="guessInput"
+            placeholder="Digite um número">
+
+            <button onclick="checkGuess()">
+
+                Enviar
+
+            </button>
+
+            <button class="restart-btn"
+            onclick="restartGame()">
+
+                Reiniciar
+
+            </button>
+
+            <div class="message"
+            id="message">
+
+                Boa sorte!
+
+            </div>
+
+            <div class="attempts">
+
+                Tentativas:
+                <span id="attempts">
+
+                    0
+
+                </span>
+
+            </div>
+
+            <div class="record">
+
+                Melhor Recorde:
+                <span id="bestScore">
+
+                    0
+
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- TELA VITÓRIA -->
+
+    <div class="victory-screen"
+    id="victoryScreen">
+
+        <div class="victory-box">
+
+            <h2>
+
+                Você acertou!
+
+            </h2>
+
+            <p id="victoryText"></p>
+
+            <button onclick="closeVictory()">
+
+                Jogar Novamente
+
+            </button>
+
+        </div>
+
+    </div>
+
+    <script src="js/script.js"></script>
+
+</body>
+
+
+<!-- CADASTRO -->
+
+<div class="register-screen"
+id="registerScreen">
+
+    <div class="register-box">
+
+        <h2>Modo Multiplayer</h2>
+
+        <input
+        type="text"
+        id="player1Name"
+        placeholder="Nome do Jogador 1">
+
+        <input
+        type="text"
+        id="player2Name"
+        placeholder="Nome do Jogador 2">
+
+        <button onclick="startPlayers()">
+
+            Continuar
+
+        </button>
+
+    </div>
+
+</div>
+
+<!-- RESULTADO FINAL -->
+
+<div class="winner-screen"
+id="winnerScreen">
+
+    <div class="winner-box">
+
+        <h2 id="winnerTitle">
+
+            Resultado
+
+        </h2>
+
+        <p id="winnerMessage"></p>
+
+        <button onclick="restartMultiplayer()">
+
+            Jogar Novamente
+
+        </button>
+
+    </div>
+
+</div>
+</html>
